@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#e07a4f" />
+  <title>Study Beans Café ☕</title>
+
+  <!-- Baloo 2 for readable body text, Press Start 2P for the retro game UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Press+Start+2P&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- ============ THE CAFÉ SCENE ============
+         The backdrop (wall, window, chalkboard) is plain pixel shapes.
+         The characters and furniture are SPRITES — grids of pixels
+         defined in sprites.js and drawn into #spriteLayer below. -->
+    <section class="cafe card" id="cafe" aria-label="Study Beans café interior">
+
+      <!-- Puff's speech bubble — the app talks to you through this -->
+      <div class="cat-bubble" id="catBubble" aria-live="polite">hi! i'm puff 💕</div>
+
+      <svg class="scene" viewBox="0 0 480 340" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <pattern id="wallDots" width="22" height="22" patternUnits="userSpaceOnUse">
+            <rect x="6" y="6" width="4" height="4" fill="#d8b98c" opacity="0.7" shape-rendering="crispEdges" />
+          </pattern>
+          <pattern id="wainscotSeams" width="26" height="26" patternUnits="userSpaceOnUse">
+            <rect x="0" y="0" width="2" height="26" fill="#c98a4e" shape-rendering="crispEdges" />
+          </pattern>
+        </defs>
+
+        <!-- ---- the wall & wainscot ---- -->
+        <rect x="0" y="0" width="480" height="222" fill="#e8cba0" shape-rendering="crispEdges" />
+        <rect x="0" y="0" width="480" height="222" fill="url(#wallDots)" />
+        <rect x="0" y="196" width="480" height="26" fill="#d9a862" shape-rendering="crispEdges" />
+        <rect x="0" y="196" width="480" height="26" fill="url(#wainscotSeams)" />
+
+        <!-- ---- bunting flags ---- -->
+        <path d="M0,14 Q120,26 240,15 T480,14" stroke="#8a5a33" stroke-width="2" fill="none" opacity="0.8" />
+        <g shape-rendering="crispEdges">
+          <polygon points="26,16 37,16 31.5,29" fill="#ff8fb3" />
+          <polygon points="73,19 84,19 78.5,32" fill="#7ec8b8" />
+          <polygon points="120,21 131,21 125.5,34" fill="#ffd9a0" />
+          <polygon points="167,23 178,23 172.5,36" fill="#b39ddb" />
+          <polygon points="214,23 225,23 219.5,36" fill="#f2a25c" />
+          <polygon points="261,23 272,23 266.5,36" fill="#ff8fb3" />
+          <polygon points="308,22 319,22 313.5,35" fill="#7ec8b8" />
+          <polygon points="355,20 366,20 360.5,33" fill="#ffd9a0" />
+          <polygon points="402,18 413,18 407.5,31" fill="#b39ddb" />
+          <polygon points="449,16 460,16 454.5,29" fill="#f2a25c" />
+        </g>
+
+        <!-- ---- the window ---- -->
+        <g shape-rendering="crispEdges">
+          <rect x="20" y="28" width="148" height="124" fill="#8a552e" />
+          <rect x="28" y="36" width="132" height="108" fill="#a8d8ef" />
+          <!-- sun -->
+          <rect x="42" y="46" width="6" height="6" fill="#ffd23f" />
+          <rect x="66" y="46" width="6" height="6" fill="#ffd23f" />
+          <rect x="42" y="70" width="6" height="6" fill="#ffd23f" />
+          <rect x="66" y="70" width="6" height="6" fill="#ffd23f" />
+          <rect x="48" y="52" width="18" height="18" fill="#ffd23f" />
+          <!-- blocky cloud -->
+          <rect x="104" y="58" width="30" height="10" fill="#ffffff" />
+          <rect x="114" y="50" width="16" height="18" fill="#ffffff" />
+          <!-- frame bars -->
+          <rect x="28" y="86" width="132" height="8" fill="#8a552e" />
+          <rect x="90" y="36" width="8" height="108" fill="#8a552e" />
+          <!-- sill -->
+          <rect x="16" y="152" width="156" height="10" fill="#9a6236" />
+          <!-- curtains -->
+          <rect x="14" y="26" width="24" height="126" fill="#f0a0b4" />
+          <rect x="18" y="26" width="6" height="126" fill="#e08aa0" />
+          <rect x="162" y="26" width="24" height="126" fill="#f0a0b4" />
+          <rect x="176" y="26" width="6" height="126" fill="#e08aa0" />
+        </g>
+
+        <!-- ---- the chalkboard menu ---- -->
+        <g shape-rendering="crispEdges">
+          <rect x="300" y="26" width="152" height="90" fill="#7d4b28" />
+          <rect x="308" y="34" width="136" height="74" fill="#4f8a6d" />
+          <text x="376" y="54" text-anchor="middle" font-family="'Press Start 2P', monospace" font-size="11" fill="#fff8e7">MENU</text>
+          <rect x="316" y="62" width="4" height="4" fill="#ffd9a0" />
+          <text x="326" y="68" font-family="'Press Start 2P', monospace" font-size="8" fill="#ffe9c9">ESPRESSO</text>
+          <rect x="316" y="76" width="4" height="4" fill="#ffd9a0" />
+          <text x="326" y="82" font-family="'Press Start 2P', monospace" font-size="8" fill="#ffe9c9">BOBA TEA</text>
+          <rect x="316" y="90" width="4" height="4" fill="#ffd9a0" />
+          <text x="326" y="96" font-family="'Press Start 2P', monospace" font-size="8" fill="#ffe9c9">CAKE</text>
+          <!-- little pie doodle -->
+          <polygon points="424,92 438,92 438,78" fill="#ffd9a0" />
+          <rect x="433" y="72" width="4" height="4" fill="#e76b8a" />
+        </g>
+
+        <!-- ---- little shelf with knick-knacks ---- -->
+        <g shape-rendering="crispEdges">
+          <rect x="176" y="150" width="116" height="8" fill="#9a6236" />
+          <rect x="184" y="158" width="6" height="12" fill="#9a6236" />
+          <rect x="278" y="158" width="6" height="12" fill="#9a6236" />
+          <rect x="194" y="140" width="14" height="10" fill="#ffffff" />
+          <rect x="208" y="144" width="3" height="6" fill="#e8d5b8" />
+          <path d="M226,150 l5,-10 h10 l5,10 z" fill="#b06a3f" />
+          <ellipse cx="236" cy="140" rx="4" ry="9" fill="#7ec8b8" transform="rotate(-16 236 140)" />
+          <ellipse cx="240" cy="140" rx="4" ry="9" fill="#93d6b8" transform="rotate(16 240 140)" />
+          <rect x="252" y="138" width="14" height="12" fill="#eaf3f7" />
+          <rect x="250" y="136" width="18" height="4" fill="#b8ccd6" />
+        </g>
+
+        <!-- sprites.js draws the characters + furniture into here -->
+        <g id="spriteLayer"></g>
+
+        <!-- steam over your cup (drawn last so it's on top) -->
+        <g transform="translate(322,240)">
+          <g class="steam-group">
+            <path class="steam-p" d="M-6,-4 l3,-5 l-3,-5" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="square" />
+            <path class="steam-p" d="M6,-4 l3,-5 l-3,-5" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="square" />
+            <path class="steam-p" d="M0,-3 l-3,-5 l3,-5" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="square" />
+          </g>
+        </g>
+
+        <!-- twinkly pixel stars -->
+        <g transform="translate(78,180)"><g class="sparkle"><path d="M0,-8 L2,-2 L8,0 L2,2 L0,8 L-2,2 L-8,0 L-2,-2 Z" fill="#ffd23f" shape-rendering="crispEdges" /></g></g>
+        <g transform="translate(310,158)"><g class="sparkle" style="animation-delay:0.6s"><path d="M0,-8 L2,-2 L8,0 L2,2 L0,8 L-2,2 L-8,0 L-2,-2 Z" fill="#ffd23f" shape-rendering="crispEdges" /></g></g>
+        <g transform="translate(436,230)"><g class="sparkle" style="animation-delay:1.1s"><path d="M0,-8 L2,-2 L8,0 L2,2 L0,8 L-2,2 L-8,0 L-2,-2 Z" fill="#ffd23f" shape-rendering="crispEdges" /></g></g>
+        <g transform="translate(150,238)"><g class="sparkle" style="animation-delay:0.3s"><path d="M0,-6 L1.5,-1.5 L6,0 L1.5,1.5 L0,6 L-1.5,1.5 L-6,0 L-1.5,-1.5 Z" fill="#ffffff" shape-rendering="crispEdges" /></g></g>
+      </svg>
+    </section>
+
+    <!-- ============ THE TIMER PANEL ============ -->
+    <main class="panel card mode-focus" id="panel">
+
+      <!-- pick which kind of session -->
+      <div class="mode-tabs">
+        <button class="tab active" data-mode="focus"><span data-icon="book"></span>FOCUS</button>
+        <button class="tab" data-mode="short"><span data-icon="cup"></span>SHORT</button>
+        <button class="tab" data-mode="long"><span data-icon="moon"></span>LONG</button>
+      </div>
+
+      <!-- how long your focus session lasts -->
+      <div class="length-row">
+        <span class="length-label">LENGTH</span>
+        <div class="length-chips">
+          <button class="length-chip" data-minutes="15">15m</button>
+          <button class="length-chip active" data-minutes="25">25m</button>
+          <button class="length-chip" data-minutes="50">50m</button>
+          <input id="customLength" class="length-input" type="number" min="1" max="180" inputmode="numeric" placeholder="?" aria-label="custom focus length in minutes — press Enter to apply" title="type your own minutes, then press Enter" />
+        </div>
+      </div>
+
+      <p class="mode-label" id="modeLabel">📚 FOCUS TIME!</p>
+
+      <!-- the cup IS the timer: it fills as you focus, drains on breaks -->
+      <div class="cup-wrap" id="cupWrap">
+        <div class="cup">
+          <div class="liquid" id="liquid"></div>
+          <div class="time" id="time" role="timer">25:00</div>
+        </div>
+        <span class="cup-handle"></span>
+        <div class="steam" aria-hidden="true"><span></span><span></span><span></span></div>
+      </div>
+
+      <!-- your active drink boost (if any) -->
+      <div class="boost-note" id="boostNote" hidden></div>
+
+      <div class="controls">
+        <button id="startBtn" class="big-btn"><span data-icon="play"></span>START</button>
+        <button id="resetBtn" class="big-btn ghost">RESET</button>
+      </div>
+
+      <!-- your earnings + session progress -->
+      <div class="hud">
+        <div class="beans-pill" id="beansPill"><span data-icon="bean"></span><b id="beanCount">0</b> beans</div>
+        <div class="cycle">sessions <span id="cycleText">0</span>/4<span class="dots" id="cycleDots"></span></div>
+      </div>
+
+      <!-- the bean shop: spend beans on a drink boost -->
+      <div class="style-box">
+        <button id="shopBtn" class="style-btn"><span data-icon="bean"></span>SHOP</button>
+        <div class="style-panel" id="shopPanel" hidden>
+          <div class="shop-row">
+            <span class="shop-icon" data-icon="espresso"></span>
+            <span class="shop-name">ESPRESSO</span>
+            <span class="shop-mult">×1.5</span>
+            <button class="buy-btn" data-drink="espresso"><span data-icon="espresso"></span>20</button>
+          </div>
+          <div class="shop-row">
+            <span class="shop-icon" data-icon="latte"></span>
+            <span class="shop-name">LATTE</span>
+            <span class="shop-mult">×2</span>
+            <button class="buy-btn" data-drink="latte"><span data-icon="latte"></span>35</button>
+          </div>
+          <div class="shop-row">
+            <span class="shop-icon" data-icon="boba"></span>
+            <span class="shop-name">BOBA TEA</span>
+            <span class="shop-mult">×2.5</span>
+            <button class="buy-btn" data-drink="boba"><span data-icon="boba"></span>50</button>
+          </div>
+          <div class="shop-row">
+            <span class="shop-icon" data-icon="matcha"></span>
+            <span class="shop-name">MATCHA</span>
+            <span class="shop-mult">×3</span>
+            <button class="buy-btn" data-drink="matcha"><span data-icon="matcha"></span>65</button>
+          </div>
+          <div class="shop-row">
+            <span class="shop-icon" data-icon="cocoa"></span>
+            <span class="shop-name">HOT COCOA</span>
+            <span class="shop-mult">×4</span>
+            <button class="buy-btn" data-drink="cocoa"><span data-icon="cocoa"></span>80</button>
+          </div>
+          <p class="shop-tip">boost applies to your next focus session ✨</p>
+        </div>
+      </div>
+
+      <!-- the journal: your study history -->
+      <div class="style-box">
+        <button id="journalBtn" class="style-btn"><span data-icon="journal"></span>JOURNAL</button>
+        <div class="style-panel journal-panel" id="journalPanel" hidden>
+          <div class="journal-line"><span>⏱ FOCUS TIME</span><b id="statFocus">0m</b></div>
+          <div class="journal-line"><span>🫘 BEANS EARNED</span><b id="statBeans">0</b></div>
+          <div class="journal-line"><span>🔥 STREAK</span><b id="statStreak">0 days</b></div>
+          <div class="journal-line"><span>🧋 DRINKS</span><b id="statDrinks">0</b></div>
+          <div class="journal-list" id="statDrinkList"></div>
+          <p class="shop-tip">every focus session writes a page ✨</p>
+        </div>
+      </div>
+
+      <!-- your custom look: skin, hair, shirt -->
+      <div class="style-box">
+        <button id="styleBtn" class="style-btn"><span data-icon="style"></span>STYLE</button>
+        <div class="style-panel" id="stylePanel" hidden>
+          <div class="style-row">
+            <span class="style-label">SKIN</span>
+            <div class="swatches" data-part="skin">
+              <button class="swatch" data-color="#ffd9b3" style="--c:#ffd9b3" title="warm"></button>
+              <button class="swatch" data-color="#f0b27a" style="--c:#f0b27a" title="tan"></button>
+              <button class="swatch" data-color="#c98a5e" style="--c:#c98a5e" title="caramel"></button>
+              <button class="swatch" data-color="#a0603c" style="--c:#a0603c" title="bronze"></button>
+              <button class="swatch" data-color="#7c4a2d" style="--c:#7c4a2d" title="deep"></button>
+            </div>
+          </div>
+          <div class="style-row">
+            <span class="style-label">HAIR</span>
+            <div class="swatches" data-part="hair">
+              <button class="swatch" data-color="#8a5a33" style="--c:#8a5a33" title="brown"></button>
+              <button class="swatch" data-color="#2f2420" style="--c:#2f2420" title="black"></button>
+              <button class="swatch" data-color="#f0c05a" style="--c:#f0c05a" title="blonde"></button>
+              <button class="swatch" data-color="#b8503c" style="--c:#b8503c" title="auburn"></button>
+              <button class="swatch" data-color="#b39ddb" style="--c:#b39ddb" title="lavender"></button>
+            </div>
+          </div>
+          <div class="style-row">
+            <span class="style-label">SHIRT</span>
+            <div class="swatches" data-part="shirt">
+              <button class="swatch" data-color="#b9d8ff" style="--c:#b9d8ff" title="sky"></button>
+              <button class="swatch" data-color="#ff9eb5" style="--c:#ff9eb5" title="pink"></button>
+              <button class="swatch" data-color="#7ee0c3" style="--c:#7ee0c3" title="mint"></button>
+              <button class="swatch" data-color="#ffd166" style="--c:#ffd166" title="butter"></button>
+              <button class="swatch" data-color="#c3a6ff" style="--c:#c3a6ff" title="lilac"></button>
+            </div>
+          </div>
+          <div class="style-row">
+            <span class="style-label">FUR</span>
+            <div class="swatches" data-part="puff-fur">
+              <button class="swatch" data-color="#f2a25c" style="--c:#f2a25c" title="orange"></button>
+              <button class="swatch" data-color="#e8b96a" style="--c:#e8b96a" title="golden"></button>
+              <button class="swatch" data-color="#c98a8a" style="--c:#c98a8a" title="dusty rose"></button>
+              <button class="swatch" data-color="#9aa7b8" style="--c:#9aa7b8" title="gray"></button>
+              <button class="swatch" data-color="#8a5a33" style="--c:#8a5a33" title="chocolate"></button>
+              <button class="swatch" data-color="#f7efe0" style="--c:#f7efe0" title="cream"></button>
+            </div>
+          </div>
+          <div class="style-row">
+            <span class="style-label">APRON</span>
+            <div class="swatches" data-part="puff-apron">
+              <button class="swatch" data-color="#ff8fb3" style="--c:#ff8fb3" title="pink"></button>
+              <button class="swatch" data-color="#7ee0c3" style="--c:#7ee0c3" title="mint"></button>
+              <button class="swatch" data-color="#ffd166" style="--c:#ffd166" title="butter"></button>
+              <button class="swatch" data-color="#b39ddb" style="--c:#b39ddb" title="lavender"></button>
+              <button class="swatch" data-color="#f0864f" style="--c:#f0864f" title="orange"></button>
+              <button class="swatch" data-color="#8a5a33" style="--c:#8a5a33" title="chocolate"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <p class="foot">made with <span data-icon="heart"></span> · your beans are saved on this device
+      <button id="soundBtn" class="sound-btn" title="sound is on — click to mute"><span data-icon="speaker"></span><span data-icon="speakerOff" hidden></span></button>
+    </p>
+  </div>
+
+  <!-- build the pixel-art scene + button icons, then start the app logic -->
+  <script src="sprites.js"></script>
+  <script src="sounds.js"></script>
+  <script>buildScene(); mountButtonIcons();</script>
+  <script src="app.js"></script>
+</body>
+</html>
