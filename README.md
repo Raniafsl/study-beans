@@ -1,7 +1,8 @@
-# ☕ Study Beans Café
+# Study Beans Café
 
 A cute Y2K-style study timer. You're the customer at a cozy coffee shop —
 finish a focus session and your coffee cup fills up... and you earn beans!
+https://studybeans.netlify.app
 
 ## How the three files fit together
 
